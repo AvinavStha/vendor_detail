@@ -1,0 +1,25 @@
+ [
+  {
+    "id": "1",
+    "first_name": "Tom",
+    "last_name": "Cruise",
+    "email": "tom@gmail.com",
+    "phone": "987654321"
+  },
+  {
+    "id": "2",
+    "first_name": "Maria",
+    "last_name": "Sharapova",
+    "email":"tom@gmail.com",
+    "phone": "987654321"
+
+  },
+  {
+    "id": "3",
+    "first_name": "James",
+    "last_name": "Bond",
+    "email":"tom@gmail.com",
+    "phone": "987654321"
+
+  }
+]

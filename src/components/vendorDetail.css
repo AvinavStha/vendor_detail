@@ -1,0 +1,166 @@
+.vendorDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    );
+  background-size: cover;
+  background-position: center;
+  max-height: fit-content;
+}
+
+  
+table {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #bdc3c7;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+    width: 25%; 
+}
+
+
+td {
+    max-width:fit-content;   
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+th{
+    background: rebeccapurple;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+h1 {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0px;
+}
+
+td:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.table-header {
+    margin-left: 50px;
+    flex: 3.5;
+    font-size: 18px;
+    max-height: 200px;
+    width: 500px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+  
+.form-header {
+  margin: 50px;
+  width: 500px;
+  flex: 1.5;
+  font-size: 18px;
+  background-color: white;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 20px;
+}
+
+form{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+h1{
+    color: rgb(77, 1, 77);
+    text-align: center;
+}
+
+.form-header button{
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: rebeccapurple;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+input{
+    width: 90%;
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}
+select{
+    width: 95%;
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+label{
+    font-size: 12px;
+    color: gray;
+}
+.required {
+    color: red;
+  }
+  .EdiDelButton{
+    width: 50%;
+    margin: 50px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rebeccapurple;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.userAddButton{
+    
+    width: 25%;
+    margin: 50px;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rebeccapurple;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
