@@ -9,21 +9,21 @@ const VendorDetail = () => {
   const [contacts, setContacts] = useState(data);
   const [addFormData, setAddFormData] = useState({
     //different property for each input from "form"
-    first_name: "",
-    last_name: "",
+    full_name: "",
+    description: "",
     email: "",
     phone: "",
   });
 
   //passing in the object
-  const [editFormData, seteditFormData] = useState({
-    first_name: "",
-    last_name: "",
+  const [editFormData, setEditFormData] = useState({
+    full_name: "",
+    description: "",
     email: "",
     phone: "",
   });
 
-  const [editContactId, seteditContactId] = useState(null); //edit ma xai null auxa if user hasn't edit anything or updated anything
+  const [editContactId, setEditContactId] = useState(null); //edit ma xai null auxa if user hasn't edit anything or updated anything
 
   // enteries made in form which will be updated in table
   const handleAddFormChange = (event) => {
@@ -48,7 +48,7 @@ const VendorDetail = () => {
     const newFormData = { ...editFormData };
     newFormData[fieldName] = fieldValue; // jun field ma change gareko xa tyo field ma user le rakheko value add garne
 
-    seteditFormData(newFormData);
+    setEditFormData(newFormData);
   };
 
   const handleAddFormSubmit = (event) => {
@@ -56,8 +56,8 @@ const VendorDetail = () => {
 
     const newContact = {
       id: nanoid(), //needed for edit and delete
-      first_name: addFormData.first_name,
-      last_name: addFormData.last_name,
+      full_name: addFormData.full_name,
+      description: addFormData.description,
       email: addFormData.email,
       phone: addFormData.phone,
     };
@@ -65,30 +65,66 @@ const VendorDetail = () => {
     setContacts(newContacts);
   };
 
+  //naya edit gareko value save garesi tei value table ma dekhauna lai
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const editedContact = {
+      id: editContactId,
+      full_name: editFormData.full_name,
+      description: editFormData.description,
+      email: editFormData.email,
+      phone: editFormData.phone,
+    };
+    const newContacts = [...contacts];
+
+    const index = contacts.findIndex((contact) => contact.id === editContactId); //replace contact object and contact array with new object that we created through index
+
+    newContacts[index] = editedContact; //passing the index that has been changed
+
+    setContacts(newContacts);
+    setEditContactId(null);
+  };
+
   //edit button click garyo vanne k hunxa vanera
   const handleEditClick = (event, contact) => {
     event.preventDefault();
-    seteditContactId(contact.id); //seteditContactId is a state object
+    setEditContactId(contact.id); //seteditContactId is a state object
 
     const formValues = {
-      first_name: contact.first_name,
-      last_name: contact.address,
-      email: contact.emial,
+      full_name: contact.full_name,
+      description: contact.description,
+      email: contact.email,
       phone: contact.phone,
     };
 
-    seteditFormData(formValues);
+    setEditFormData(formValues);
+  };
+
+  //yo xai jaba hamle cancel click garxau teti bela kei changes haru huna nadine or state object ma jun value ta tei value rakhne
+  const handleCancelClick = () => {
+    setEditContactId(null);
+  };
+
+  const handleDeleteClick = (contactId) => {
+    const newContacts = [...contacts];
+
+    const index = contacts.findIndex((contact) => contact.id === contactId); //kun employee id lai delete garne ta
+
+    newContacts.splice(index, 1); //esma xai k if delete garyo vanne kati euta delete garne ta vanera mention gareko xa ahile ko lai euta delete garne
+
+    setContacts(newContacts);
   };
 
   return (
     <div className="vendorDetail">
       <div className="table-header">
-        <form>
+        <form onSubmit={handleEditFormSubmit}>
           <table>
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Full Name</th>
+                <th>Description</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Actions</th>
@@ -102,12 +138,14 @@ const VendorDetail = () => {
                   {editContactId === contact.id ? (
                     <EditableRows
                       editFormData={editFormData}
-                      handleAddFormChange={hadleEditFormChange}
+                      handleEditFormChange={hadleEditFormChange}
+                      handleCancelClick={handleCancelClick}
                     />
                   ) : (
                     <ReadOnlyRows
                       contact={contact}
                       handleEditClick={handleEditClick}
+                      handleDeleteClick={handleDeleteClick}
                     />
                   )}
                   {/*if the id of the contact oject matches the id sotred in the editContactId then it will change or go to ReadOnlyRows */}
@@ -124,15 +162,15 @@ const VendorDetail = () => {
           <label>First Name</label>
           <input
             type="text"
-            name="first_name"
+            name="full_name"
             required="required"
             placeholder="Enter your first name."
             onChange={handleAddFormChange}
           />
-          <label>Last Name</label>
+          <label>Description</label>
           <input
             type="text"
-            name="last_name"
+            name="description"
             required="required"
             placeholder="Enter your last name."
             onChange={handleAddFormChange}

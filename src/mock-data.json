@@ -1,23 +1,23 @@
  [
   {
     "id": "1",
-    "first_name": "Tom",
-    "last_name": "Cruise",
+    "full_name": "Tom Cruise",
+    "description": "Software Engineer",
     "email": "tom@gmail.com",
     "phone": "987654321"
   },
   {
     "id": "2",
-    "first_name": "Maria",
-    "last_name": "Sharapova",
+    "full_name": "Maria Fernandes",
+    "description": "Software Engineer",
     "email":"tom@gmail.com",
     "phone": "987654321"
 
   },
   {
     "id": "3",
-    "first_name": "James",
-    "last_name": "Bond",
+    "full_name": "James Bond",
+    "description": "Senior developer",
     "email":"tom@gmail.com",
     "phone": "987654321"
 
