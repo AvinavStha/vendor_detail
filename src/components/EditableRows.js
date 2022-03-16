@@ -1,6 +1,7 @@
 import React from "react";
 
 const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick }) => {
+
   return (
     <tr>
       <td>
