@@ -4,6 +4,7 @@ import data from "../mock-data";
 import "./vendorDetail.css";
 import ReadOnlyRows from "./ReadOnlyRows";
 import EditableRows from "./EditableRows";
+// import Popup from "./Popup";
 
 const VendorDetail = () => {
   const [contacts, setContacts] = useState(data);
@@ -22,7 +23,6 @@ const VendorDetail = () => {
     email: "",
     phone: "",
   });
-
 
   const [editContactId, setEditContactId] = useState(null); //edit ma xai null auxa if user hasn't edit anything or updated anything
 
@@ -117,6 +117,8 @@ const VendorDetail = () => {
     setContacts(newContacts);
   };
 
+  // const [openPopup, setOpenPopup] = useState(false);
+
   return (
     <div className="vendorDetail">
       <div className="table-header">
@@ -173,7 +175,7 @@ const VendorDetail = () => {
             type="text"
             name="description"
             required="required"
-            placeholder="Enter your last name."
+            placeholder="Describe yorself."
             onChange={handleAddFormChange}
           />
           <label>Email</label>
@@ -181,7 +183,7 @@ const VendorDetail = () => {
             type="text"
             name="email"
             required="required"
-            placeholder="Enter an email..."
+            placeholder="Enter an email."
             onChange={handleAddFormChange}
           />
           <label>Phone No.</label>
@@ -193,7 +195,6 @@ const VendorDetail = () => {
             pattern="^[0-9]{7,10}$"
             onChange={handleAddFormChange}
           />
-
           <button type="submit">Register</button>
         </form>
       </div>

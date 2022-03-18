@@ -1,6 +1,6 @@
 import React from "react";
 
-const VendorProfile = ({ contact }) => {
+const VendorProfile = () => {
   return (
     <div className="profiles">
       <div className="userShowBottom">

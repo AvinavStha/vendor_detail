@@ -18,7 +18,7 @@ const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick })
       <input
           type="text"
           required="required"
-          placeholder="Enter your last name"
+          placeholder="Describe yourself"
           name="description"
           value={editFormData.description}
           onChange={handleEditFormChange}
@@ -44,9 +44,9 @@ const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick })
           name="phone"
           value={editFormData.phone}
           onChange={handleEditFormChange}
-
         ></input>
       </td>
+     
       <td>
           <button  className="userButton" type="submit">Save</button>
           <button className="userButton" type="submit" onClick={handleCancelClick}>Cancel</button>

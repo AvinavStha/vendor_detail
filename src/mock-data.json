@@ -1,6 +1,8 @@
+
  [
   {
     "id": "1",
+    "avatar": "images/IMG_0054.PNG",
     "full_name": "Tom Cruise",
     "description": "Software Engineer",
     "email": "tom@gmail.com",
@@ -8,6 +10,7 @@
   },
   {
     "id": "2",
+    "avatar": "images/IMG_0054.PNG",
     "full_name": "Maria Fernandes",
     "description": "Software Engineer",
     "email":"tom@gmail.com",
@@ -16,6 +19,7 @@
   },
   {
     "id": "3",
+    "avatar": "images/IMG_0054.PNG",
     "full_name": "James Bond",
     "description": "Senior developer",
     "email":"tom@gmail.com",
