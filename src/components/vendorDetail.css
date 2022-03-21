@@ -62,14 +62,14 @@ td:hover {
     flex: 3.5;
     font-size: 18px;
     max-height: 200px;
-    width: 500px;
+    width: 100%;
     padding-left: 40px;
     padding-right: 40px;
 }
   
 .form-header {
   margin: 50px;
-  width: 500px;
+  width: 100%;
   flex: 1.5;
   font-size: 18px;
   background-color: white;
@@ -78,6 +78,7 @@ td:hover {
   padding-right: 40px;
   border-radius: 20px;
 }
+
 
 form{
     border-radius: 10px;
@@ -175,4 +176,49 @@ label{
     font-weight: bold;
     font-size: 18px;
     cursor: pointer;
+}
+
+
+.profileViewImage{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    justify-content: left;
+
+}
+.userShow{
+    margin-top: 20px;
+}
+.userShowTitle{
+    font-weight: 300;
+}
+.userShowBottom{
+    padding: 20px;
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+}
+.userShowTitle{
+    font-size: 32px; 
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+}
+.userShowInfo{
+    font-size: 28px; 
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+}
+.userAddButton{
+    width: 80px;
+    padding: 5px;
+    border: none;
+    background-color: rebeccapurple;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+
 }

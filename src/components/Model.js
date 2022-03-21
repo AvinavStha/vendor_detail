@@ -1,9 +1,12 @@
 import React from "react";
+import {Close} from "@material-ui/icons";
 
-const VendorProfile = ({ contact }) => {
+export const Model = (contact) => {
   return (
     <div>
       <div className="userShowBottom">
+        <button style={{background:'transparent', align_item: 'left'}}><Close/></button>
+        <img src={contact.avatar} className="userShowImage"/>
         <span className="userShowTitle">Name</span>
         <div className="userShowInfo">
           <span className="userShowInfoTitle">{contact.name}</span>
@@ -24,5 +27,3 @@ const VendorProfile = ({ contact }) => {
     </div>
   );
 };
-
-export default VendorProfile;

@@ -1,15 +1,41 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
-import data from "../mock-data";
+import { data } from "../mock-data.js";
 import "./vendorDetail.css";
 import ReadOnlyRows from "./ReadOnlyRows";
 import EditableRows from "./EditableRows";
-// import Popup from "./Popup";
+import { Model } from "./Model";
 
 const VendorDetail = () => {
+  //profile view of employees
+  const [model, setModel] = useState(false);
+  const [addProfileData, setAddProfileData] = useState({
+    avatar: "",
+    full_name: "",
+    description: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleProfileClick = (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name"); //get name attribute which ever the user has typed into
+    const fieldValue = event.target.value; //actual value that user has entered
+
+    const newProfileData = { ...addProfileData }; //spread operator to copy the formdata and assign new data to newFormData
+    newProfileData[fieldName] = fieldValue; //newFormData is an object that helps to get a given key basically user kei input ma lekheko xa vane tyo value pathaune kam garxa
+
+    setAddProfileData(newProfileData);
+
+    return setModel(true);
+  };
+
   const [contacts, setContacts] = useState(data);
+
   const [addFormData, setAddFormData] = useState({
     //different property for each input from "form"
+    avatar: "",
     full_name: "",
     description: "",
     email: "",
@@ -18,6 +44,7 @@ const VendorDetail = () => {
 
   //passing in the object
   const [editFormData, setEditFormData] = useState({
+    avatar: "",
     full_name: "",
     description: "",
     email: "",
@@ -57,6 +84,7 @@ const VendorDetail = () => {
 
     const newContact = {
       id: nanoid(), //needed for edit and delete
+      avatar: addFormData.avatar,
       full_name: addFormData.full_name,
       description: addFormData.description,
       email: addFormData.email,
@@ -72,6 +100,7 @@ const VendorDetail = () => {
 
     const editedContact = {
       id: editContactId,
+      avatar: editFormData.avatar,
       full_name: editFormData.full_name,
       description: editFormData.description,
       email: editFormData.email,
@@ -93,6 +122,7 @@ const VendorDetail = () => {
     setEditContactId(contact.id); //seteditContactId is a state object
 
     const formValues = {
+      avatar: contact.avatar,
       full_name: contact.full_name,
       description: contact.description,
       email: contact.email,
@@ -117,8 +147,6 @@ const VendorDetail = () => {
     setContacts(newContacts);
   };
 
-  // const [openPopup, setOpenPopup] = useState(false);
-
   return (
     <div className="vendorDetail">
       <div className="table-header">
@@ -126,6 +154,7 @@ const VendorDetail = () => {
           <table>
             <thead>
               <tr>
+                <th></th>
                 <th>Full Name</th>
                 <th>Description</th>
                 <th>Email</th>
@@ -147,6 +176,7 @@ const VendorDetail = () => {
                   ) : (
                     <ReadOnlyRows
                       contact={contact}
+                      handleProfileClick={handleProfileClick}
                       handleEditClick={handleEditClick}
                       handleDeleteClick={handleDeleteClick}
                     />
@@ -195,9 +225,20 @@ const VendorDetail = () => {
             pattern="^[0-9]{7,10}$"
             onChange={handleAddFormChange}
           />
+
+          <label>Upload Image</label>
+          <input
+            className="uploadFormImage"
+            type="file"
+            name="avatar"
+            required="required"
+            placeholder="Upload your image."
+            onChange={handleAddFormChange}
+          />
           <button type="submit">Register</button>
         </form>
       </div>
+      {model === true ? <Model hide={()=> setModel(false)}/> : ''}
     </div>
   );
 };

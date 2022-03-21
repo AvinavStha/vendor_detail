@@ -1,9 +1,16 @@
 import React from "react";
 
-const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick }) => {
 
+const EditableRows = ({
+  editFormData,
+  handleEditFormChange,
+  handleCancelClick,
+}) => {
   return (
     <tr>
+      <td>
+       
+      </td>
       <td>
         <input
           type="text"
@@ -15,29 +22,27 @@ const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick })
         ></input>
       </td>
       <td>
-      <input
+        <input
           type="text"
           required="required"
           placeholder="Describe yourself"
           name="description"
           value={editFormData.description}
           onChange={handleEditFormChange}
-
         ></input>
       </td>
       <td>
-      <input
+        <input
           type="text"
           required="required"
           placeholder="Enter your email"
           name="email"
           value={editFormData.email}
           onChange={handleEditFormChange}
-
         ></input>
       </td>
       <td>
-      <input
+        <input
           type="text"
           required="required"
           placeholder="Enter your phone number"
@@ -46,12 +51,19 @@ const EditableRows = ({ editFormData, handleEditFormChange, handleCancelClick })
           onChange={handleEditFormChange}
         ></input>
       </td>
-     
+
       <td>
-          <button  className="userButton" type="submit">Save</button>
-          <button className="userButton" type="submit" onClick={handleCancelClick}>Cancel</button>
+        <button className="userButton" type="submit">
+          Save
+        </button>
+        <button
+          className="userButton"
+          type="submit"
+          onClick={handleCancelClick}
+        >
+          Cancel
+        </button>
       </td>
-      
     </tr>
   );
 };

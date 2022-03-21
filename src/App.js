@@ -1,10 +1,10 @@
-import './App.css';
-import VendorForm from './components/VendorDetail';
+import "./App.css";
+import VendorForm from "./components/VendorDetail";
 
 function App() {
   return (
     <div className="App">
-      <VendorForm />
+      <VendorForm/>
     </div>
   );
 }
